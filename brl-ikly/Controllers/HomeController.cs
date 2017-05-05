@@ -24,7 +24,6 @@ namespace brl_ikly.Controllers
             return View();
         }
 
-        [HttpPost]
         public ActionResult Shorten(Url inputUrl)
         {
             string outputUrl = "";
