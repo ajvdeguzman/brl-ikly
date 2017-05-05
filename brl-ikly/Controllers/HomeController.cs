@@ -88,6 +88,9 @@ namespace brl_ikly.Controllers
                     fixedLongName = "http://" + fixedLongName;
                 }
 
+                existingUrl.UrlVisitCount += 1;
+                db.SaveChanges();
+
                 return Redirect(fixedLongName);
             }
             else
