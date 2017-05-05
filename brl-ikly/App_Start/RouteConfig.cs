@@ -18,6 +18,12 @@ namespace brl_ikly
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Shorten",
+                url: "{shortUrl}",
+                defaults: new { controller = "Home", action = "GotoOriginalUrl", shortUrl = UrlParameter.Optional }
+                );
         }
     }
 }

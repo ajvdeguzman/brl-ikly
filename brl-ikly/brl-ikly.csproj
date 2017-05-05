@@ -153,6 +153,7 @@
     </Compile>
     <Compile Include="Models\Url.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\ShortURL.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

@@ -1,4 +1,6 @@
-﻿@{
+﻿@model brl_ikly.Models.Url
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,8 +8,34 @@
     <h1>ikly</h1>
     <p class="lead">Shorten your link, share in a blink.</p>
     <p>
-        @Html.TextBox("textBoxURL", null, new { @class = "form-control"})
-        @Html.ActionLink("Shorten", "Index", "Home", new { @class = "btn btn-default"})
+        <table>
+            <tr>
+                @using (Html.BeginForm("Shorten", "Home", FormMethod.Post))
+                {
+                    <td>
+                        Original URL:
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(model => model.UrlLongName)
+                        @* @Html.ValidationMessageFor(model => model.Email) *@
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-default">Shorten</button>
+                    </td>
+                }
+            </tr>
+            <tr>
+                <td>
+                    Shortened URL:
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.UrlShortName) @* TODO: how to set as read-only *@
+                </td>
+                <td>
+                    &nbsp; @* TODO: button here for Copy *@
+                </td>
+            </tr>
+        </table>
     </p>
 </div>
 

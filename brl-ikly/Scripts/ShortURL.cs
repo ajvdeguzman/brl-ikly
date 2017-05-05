@@ -24,8 +24,9 @@ using System.Text;
 public class ShortURL
 {
 
-	private const string Alphabet = "23456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ-_";
-	private static readonly int Base = Alphabet.Length;
+    //private const string Alphabet = "23456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ-_";
+    private const string Alphabet = "SBVch64GdD93gZ_7NsbkTyWCLRmHnQ5qpxF-MjfwYPvrtz28KXJ"; //changed alphabet order for non-predictability
+    public static readonly int Base = Alphabet.Length; //changed from private to public
 
 	public static string Encode(int num)
 	{
