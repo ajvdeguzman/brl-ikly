@@ -26,8 +26,18 @@ textarea {
 .home-textfield {
     max-width: none;
     width: 100%;
+    padding-left: 15px;
 }
 
 .home-label {
     font-size: 15px;
+}
+
+.home-button {
+    font-size: 14px;
+    height: 51px;
+    width: 100px;
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
 }
