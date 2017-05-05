@@ -32,6 +32,7 @@ namespace brl_ikly.Controllers
         public ActionResult Shorten(Url inputUrl)
         {
             string outputUrl = "";
+            int outputVisitCount = 0;
 
             UrlDBContext db = new UrlDBContext();
             Url existingUrl = db.Urls.Where(o => o.UrlLongName.ToLower().Equals(inputUrl.UrlLongName.ToLower())).FirstOrDefault();
@@ -65,9 +66,11 @@ namespace brl_ikly.Controllers
             else
             {
                 outputUrl = existingUrl.UrlShortName;
+                outputVisitCount = existingUrl.UrlVisitCount;                
             }
 
             inputUrl.UrlShortName = Request.Url.Scheme + "://" + Request.Url.Authority + "/" + outputUrl;
+            inputUrl.UrlVisitCount = outputVisitCount;
 
             return View("Index", inputUrl);
         }

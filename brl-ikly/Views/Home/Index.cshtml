@@ -13,7 +13,7 @@
                 @using (Html.BeginForm("Shorten", "Home", FormMethod.Post))
                 {
                     <td>
-                        Original URL:
+                        Original URL:&nbsp;
                     </td>
                     <td>
                         @Html.TextBoxFor(model => model.UrlLongName)
@@ -26,13 +26,18 @@
             </tr>
             <tr>
                 <td>
-                    Shortened URL:
+                    Shortened URL:&nbsp;
                 </td>
                 <td>
                     @Html.TextBoxFor(model => model.UrlShortName) @* TODO: how to set as read-only *@
                 </td>
                 <td>
                     &nbsp; @* TODO: button here for Copy *@
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    Visitor count:&nbsp;@Html.DisplayFor(model => model.UrlVisitCount)
                 </td>
             </tr>
         </table>
