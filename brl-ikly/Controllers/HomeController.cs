@@ -72,11 +72,31 @@ namespace brl_ikly.Controllers
             return View("Index", inputUrl);
         }
 
-        public ActionResult GotoOriginalUrl()
+        public ActionResult GotoOriginalUrl(string shortUrl)
         {
+            UrlDBContext db = new UrlDBContext();
+            Url existingUrl = db.Urls.Where(o => o.UrlShortName.Equals(shortUrl)).FirstOrDefault();
 
+            if (existingUrl != null)
+            {
+                //means short link exists
 
-            return Redirect();
+                string fixedLongName = existingUrl.UrlLongName;
+
+                if (!(fixedLongName.StartsWith("http://", StringComparison.OrdinalIgnoreCase) || fixedLongName.StartsWith("https://", StringComparison.OrdinalIgnoreCase)))
+                {
+                    fixedLongName = "http://" + fixedLongName;
+                }
+
+                return Redirect(fixedLongName);
+            }
+            else
+            {
+
+            }
+
+            //TODO: Error page if not valid shorturl
+            return View();
         }
     }
 }

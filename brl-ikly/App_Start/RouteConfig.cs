@@ -15,7 +15,7 @@ namespace brl_ikly
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
+                url: "",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
@@ -23,7 +23,13 @@ namespace brl_ikly
                 name: "Shorten",
                 url: "{shortUrl}",
                 defaults: new { controller = "Home", action = "GotoOriginalUrl", shortUrl = UrlParameter.Optional }
-                );
+            );
+
+            routes.MapRoute(
+                name: "Default2",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }
